@@ -17,7 +17,18 @@ Registro de Directorio  |
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Registrar Nuevo Directorio</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                            <span id="card_title">
+                                {{ __('Formulario de Registro') }}
+                            </span>
+
+                             <div class="float-right">
+                                <a href="{{ route('directorios.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                    <i class="fas fa-arrow-circle-left"></i> {{ __('Volver') }}
+                                </a>
+                              </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('directorios.store') }}" role="form"

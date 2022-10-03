@@ -16,12 +16,12 @@ Directorios  |
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Directorio') }}
+                                Listado de Directorios
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('directorios.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  <i class="fas fa-plus"></i> {{ __('Nuevo') }}
                                 </a>
                               </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cargo;
 use App\Models\Directorio;
+use App\Models\Directoriocargo;
 use Illuminate\Http\Request;
 
 /**
@@ -50,7 +51,7 @@ class DirectorioController extends Controller
         $directorio = Directorio::create($request->all());
 
         return redirect()->route('directorios.index')
-            ->with('success', 'Directorio created successfully.');
+            ->with('success', 'Directorio creado correctamente.');
     }
 
     /**
@@ -62,8 +63,8 @@ class DirectorioController extends Controller
     public function show($id)
     {
         $directorio = Directorio::find($id);
-
-        return view('directorio.show', compact('directorio'));
+        $integrantes = Directoriocargo::where('directorio_id', $directorio->id)->get();
+        return view('directorio.show', compact('directorio', 'integrantes'));
     }
 
     /**
@@ -100,7 +101,7 @@ class DirectorioController extends Controller
         $directorio->update($request->all());
 
         return redirect()->route('directorios.index')
-            ->with('success', 'Directorio updated successfully');
+            ->with('success', 'Directorio actualizado correctamente');
     }
 
     /**
@@ -113,6 +114,6 @@ class DirectorioController extends Controller
         $directorio = Directorio::find($id)->delete();
 
         return redirect()->route('directorios.index')
-            ->with('success', 'Directorio deleted successfully');
+            ->with('success', 'Directorio Eliminado correctamente');
     }
 }

@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
-@section('template_title')
-    Update Directorio
+@section('title-page')
+Editar Directorios  |  
+@endsection
+
+@section('title-content')
+<i class="fas fa-university"></i> DIRECTORIOS - Editar 
 @endsection
 
 @section('content')
@@ -14,7 +18,18 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Directorio</span>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+
+                            <span id="card_title">
+                                {{ __('Formulario de Actualización') }}
+                            </span>
+
+                             <div class="float-right">
+                                <a href="{{ route('directorios.index') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                    <i class="fas fa-arrow-circle-left"></i> {{ __('Volver') }}
+                                </a>
+                              </div>
+                        </div>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('directorios.update', $directorio->id) }}" role="form"
@@ -23,7 +38,9 @@
                             @csrf
 
                             @include('directorio.form')
-
+                            <div class="box-footer mt20">
+                                <button type="submit" class="btn btn-primary px-5"><i class="fas fa-save"></i> Guardar cambios</button>
+                            </div>
                         </form>
                     </div>
                 </div>
