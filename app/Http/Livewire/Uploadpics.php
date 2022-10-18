@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Intervention\Image\Facades\Image;
 
 class Uploadpics extends Component
 {
@@ -24,7 +25,12 @@ class Uploadpics extends Component
             'photo' => 'image|max:1024', // 1MB Max
         ]);
         
-        $this->photo->storeAs('avatar',Auth::user()->id . '.' . $this->photo->getClientOriginalExtension());
+        // $this->photo->storeAs('avatar',Auth::user()->id . '.' . $this->photo->getClientOriginalExtension());
+        $ruta = storage_path() . '\app\public\avatar/' . Auth::user()->id . '.' . $this->photo->getClientOriginalExtension();
+        Image::make($this->photo)->fit(500, 500, function ($constraint) {
+            $constraint->upsize();
+        })->save($ruta);
+
 
         $user = User::find(Auth::user()->id);
         $user->avatar = 'avatar/' . Auth::user()->id . '.' . $this->photo->getClientOriginalExtension();

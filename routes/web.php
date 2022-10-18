@@ -6,6 +6,7 @@ use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\DirectoriocargoController;
 use App\Http\Controllers\DirectorioController;
 use App\Http\Controllers\EstadoController;
+use App\Http\Controllers\EventoController;
 use App\Http\Controllers\GradoController;
 use App\Http\Controllers\ParentezcoController;
 use App\Http\Controllers\PersonaController;
@@ -13,6 +14,7 @@ use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VinculoController;
+use App\Http\Livewire\Eventos;
 use App\Http\Livewire\IntegrantesDirectorio;
 use App\Http\Livewire\Vinculos;
 use Illuminate\Support\Facades\Route;
@@ -58,5 +60,7 @@ Route::get('directorio-integrantes/{id}', IntegrantesDirectorio::class)->name('d
 Route::resource('directoriocargos', DirectoriocargoController::class)->names('directoriocargos');
 
 Route::get('asociados.deleted',[AsociadoController::class,'deleted'])->name('asociados.deleted');
+Route::resource('eventos', EventoController::class)->names('eventos');
 
 Route::resource('pruebas',PruebaController::class);
+Route::get('events', [EventoController::class,'allEvents'])->name('events');

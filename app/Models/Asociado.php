@@ -80,4 +80,9 @@ class Asociado extends Model
         return $this->hasMany('App\Models\Vinculo', 'asociado_id', 'id');
     }
 
+    public function eventos()
+    {
+        return $this->hasMany('App\Models\Eventos', 'evento_id', 'id');
+    }
+
 }

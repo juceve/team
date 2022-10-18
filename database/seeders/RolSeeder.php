@@ -58,5 +58,10 @@ class RolSeeder extends Seeder
         Permission::create(['name' => 'directorios.edit','grupo' => 'Directorios','description' => 'Editar'])->syncRoles([$role1]);
         Permission::create(['name' => 'directorios.destroy','grupo' => 'Directorios','description' => 'Eliminar'])->syncRoles([$role1]);
         Permission::create(['name' => 'directorios.integrantes','grupo' => 'Directorios','description' => 'Integrantes'])->syncRoles([$role1]);
+
+        Permission::create(['name' => 'eventos.index','grupo' => 'Eventos','description' => 'Ver listado eventos'])->syncRoles([$role1,$role2,$role3]);
+        Permission::create(['name' => 'eventos.create','grupo' => 'Eventos','description' => 'Crear'])->syncRoles([$role1]);
+        Permission::create(['name' => 'eventos.edit','grupo' => 'Eventos','description' => 'Editar'])->syncRoles([$role1]);
+        Permission::create(['name' => 'eventos.destroy','grupo' => 'Eventos','description' => 'Eliminar'])->syncRoles([$role1]);
     }
 }

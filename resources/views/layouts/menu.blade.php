@@ -21,7 +21,16 @@
                               <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('directorios.index') }}"
                                   aria-expanded="false">
                                   <i class="fas fa-university"></i> 
-                                  <span class="hide-menu">DIRECTORIOS</span>
+                                  <span class="hide-menu">Directorios</span>
+                              </a>
+                          </li>
+                      @endcan
+                      @can('eventos.index')
+                          <li class="sidebar-item">
+                              <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('eventos.index') }}"
+                                  aria-expanded="false">
+                                  <i class="fas fa-calendar-alt"></i>
+                                  <span class="hide-menu">Calendario Eventos</span>
                               </a>
                           </li>
                       @endcan
@@ -64,9 +73,7 @@
                       </li>
                       <hr>
                       <div class="container-fluid">
-                          <div class="content text-center">
-                              <h2 class="h5">Parámetros del Sistema</h2>
-                          </div>
+                          
                           <li class="sidebar-item">
                               <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)"
                                   aria-expanded="false">
