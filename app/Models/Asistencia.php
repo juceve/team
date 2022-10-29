@@ -5,33 +5,27 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Evento
+ * Class Asistencia
  *
  * @property $id
- * @property $fecha
- * @property $hora
- * @property $tema
- * @property $grado_id
+ * @property $evento_id
  * @property $asociado_id
- * @property $prioridad
- * @property $ctrAsistencia
- * @property $notas
+ * @property $tipoasistencia
  * @property $created_at
  * @property $updated_at
  *
  * @property Asociado $asociado
- * @property Grado $grado
+ * @property Evento $evento
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Evento extends Model
+class Asistencia extends Model
 {
     
     static $rules = [
-		'fecha' => 'required',
-		'hora' => 'required',
-		'tema' => 'required',
-		'prioridad' => 'required',
+		'evento_id' => 'required',
+		'asociado_id' => 'required',
+		'tipoasistencia' => 'required',
     ];
 
     protected $perPage = 20;
@@ -41,7 +35,7 @@ class Evento extends Model
      *
      * @var array
      */
-    protected $fillable = ['fecha','hora','tema','grado_id','asociado_id','prioridad','ctrAsistencia','notas'];
+    protected $fillable = ['evento_id','asociado_id','tipoasistencia'];
 
 
     /**
@@ -55,13 +49,10 @@ class Evento extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function grado()
+    public function evento()
     {
-        return $this->hasOne('App\Models\Grado', 'id', 'grado_id');
+        return $this->hasOne('App\Models\Evento', 'id', 'evento_id');
     }
     
-    public function asistencias()
-    {
-        return $this->hasMany('App\Models\Asistencias', 'asistencia_id', 'id');
-    }
+
 }

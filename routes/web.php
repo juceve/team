@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsistenciaController;
 use App\Http\Controllers\AsociadoController;
 use App\Http\Controllers\CargoController;
 use App\Http\Controllers\ClienteController;
@@ -14,9 +15,7 @@ use App\Http\Controllers\PruebaController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VinculoController;
-use App\Http\Livewire\Eventos;
 use App\Http\Livewire\IntegrantesDirectorio;
-use App\Http\Livewire\Vinculos;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,3 +63,4 @@ Route::resource('eventos', EventoController::class)->names('eventos');
 
 Route::resource('pruebas',PruebaController::class);
 Route::get('events', [EventoController::class,'allEvents'])->name('events');
+Route::get('control/{id}',[AsistenciaController::class,'show'])->name('control');

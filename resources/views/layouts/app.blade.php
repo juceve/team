@@ -20,7 +20,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/libs/select2/dist/css/select2.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('admin/assets/extra-libs/multicheck/multicheck.css') }}" />
     <link href="{{ asset('admin/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet" />
-    
+    <link href="{{ asset('admin/assets/extra-libs/DataTables/select.dataTables.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('admin/dist/css/style.min.css') }}" rel="stylesheet" />
     <link href="{{asset('admin/assets/libs/toastr/build/toastr.min.css')}}" rel="stylesheet" />
     @yield('css')
@@ -124,6 +124,7 @@
         <script src="{{ asset('admin/assets/extra-libs/multicheck/datatable-checkbox-init.js') }}"></script>
         <script src="{{ asset('admin/assets/extra-libs/multicheck/jquery.multicheck.js') }}"></script>
         <script src="{{ asset('admin/assets/extra-libs/DataTables/datatables.min.js') }}"></script>
+        <script src="{{ asset('admin/assets/extra-libs/DataTables/dataTables.select.min.js') }}"></script>
         <script src="{{ asset('admin/assets/dt-es.js') }}"></script>
         <script src="{{ asset('admin/assets/extra-libs/sweetalert2/sweetalert2.all.min.js') }}"></script>
         <script src="{{asset('admin/assets/libs/toastr/build/toastr.min.js')}}"></script>

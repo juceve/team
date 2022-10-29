@@ -13,13 +13,18 @@ use Illuminate\Database\Eloquent\Model;
  * @property $persona_id
  * @property $user_id
  * @property $estado_id
+ * @property $deleted
  * @property $created_at
  * @property $updated_at
  *
+ * @property Asistencia[] $asistencias
+ * @property Directoriocargo[] $directoriocargos
  * @property Estado $estado
+ * @property Evento[] $eventos
  * @property Grado $grado
  * @property Persona $persona
  * @property User $user
+ * @property Vinculo[] $vinculos
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -28,6 +33,7 @@ class Asociado extends Model
     
     static $rules = [
 		'fecingreso' => 'required',
+		'deleted' => 'required',
     ];
 
     protected $perPage = 20;
@@ -40,12 +46,36 @@ class Asociado extends Model
     protected $fillable = ['fecingreso','grado_id','persona_id','user_id','estado_id','deleted'];
 
 
-     /**
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function asistencias()
+    {
+        return $this->hasMany('App\Models\Asistencia', 'asociado_id', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function directoriocargos()
+    {
+        return $this->hasMany('App\Models\Directoriocargo', 'asociado_id', 'id');
+    }
+    
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
     public function estado()
     {
         return $this->hasOne('App\Models\Estado', 'id', 'estado_id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function eventos()
+    {
+        return $this->hasMany('App\Models\Evento', 'asociado_id', 'id');
     }
     
     /**
@@ -79,10 +109,6 @@ class Asociado extends Model
     {
         return $this->hasMany('App\Models\Vinculo', 'asociado_id', 'id');
     }
-
-    public function eventos()
-    {
-        return $this->hasMany('App\Models\Eventos', 'evento_id', 'id');
-    }
+    
 
 }

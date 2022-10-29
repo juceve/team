@@ -13,6 +13,6 @@ Example Page
     Titulo de contenido
 </div>
 <div class="content">
-@livewire('uploadpics')  
+@livewire('ctrasistencia')  
 </div>  
 @endsection
